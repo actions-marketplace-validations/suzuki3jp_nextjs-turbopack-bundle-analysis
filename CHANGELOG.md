@@ -1,5 +1,11 @@
 # nextjs-turbopack-bundle-analysis
 
+## 0.1.0
+
+### Minor Changes
+
+- 9751dd7: feat!: remove working-directory input, use build-output-directory for monorepos
+
 ## 0.0.4
 
 ### Patch Changes
