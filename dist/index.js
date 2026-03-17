@@ -30380,7 +30380,7 @@ async function run() {
         core.startGroup('Analyzing base branch');
         await exec.exec('git', ['worktree', 'add', baseTmp, baseSha]);
         const baseWorkDir = path.join(baseTmp, inputs.workingDirectory);
-        await exec.exec('npx', ['--yes', '@antfu/ni', 'nci'], { cwd: baseWorkDir });
+        await exec.exec('npx', ['--yes', '--package', '@antfu/ni', 'nci'], { cwd: baseWorkDir });
         await exec.exec('sh', ['-c', inputs.buildCommand], { cwd: baseWorkDir });
         const baseAnalysis = (0, analyze_1.loadAnalysis)(path.join(baseWorkDir, inputs.buildOutputDirectory, 'analyze'));
         core.info(`Base analysis: ${baseAnalysis.routes.length} routes`);
@@ -30389,7 +30389,7 @@ async function run() {
         core.startGroup('Analyzing PR branch');
         await exec.exec('git', ['worktree', 'add', prTmp, prSha]);
         const prWorkDir = path.join(prTmp, inputs.workingDirectory);
-        await exec.exec('npx', ['--yes', '@antfu/ni', 'nci'], { cwd: prWorkDir });
+        await exec.exec('npx', ['--yes', '--package', '@antfu/ni', 'nci'], { cwd: prWorkDir });
         await exec.exec('sh', ['-c', inputs.buildCommand], { cwd: prWorkDir });
         const prAnalysis = (0, analyze_1.loadAnalysis)(path.join(prWorkDir, inputs.buildOutputDirectory, 'analyze'));
         core.info(`PR analysis: ${prAnalysis.routes.length} routes`);
