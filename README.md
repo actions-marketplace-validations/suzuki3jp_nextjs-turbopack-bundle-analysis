@@ -83,4 +83,4 @@ permissions:
 
 ## License
 
-MIT
+[MIT](./LICENSE)
