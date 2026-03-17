@@ -1,0 +1,37 @@
+name: 'Next.js Turbopack Bundle Analysis'
+description: 'Analyze Next.js Turbopack bundle size changes in PRs and post a comment automatically'
+author: 'suzuki3jp'
+branding:
+  icon: 'bar-chart-2'
+  color: 'blue'
+inputs:
+  working-directory:
+    description: 'Working directory of the Next.js project (for monorepos)'
+    required: false
+    default: '.'
+  build-output-directory:
+    description: 'Next.js build output directory (default: .next)'
+    required: false
+    default: '.next'
+  build-command:
+    description: 'Command to build and analyze the bundle'
+    required: false
+    default: 'npx next experimental-analyze'
+  budget:
+    description: 'First-page load JS size budget in bytes. Routes exceeding this are marked with ⚠️'
+    required: false
+  budget-percent-increase-red:
+    description: 'Percentage increase threshold to mark route as 🔴 (default: 20)'
+    required: false
+    default: '20'
+  minimum-change-threshold:
+    description: 'Ignore routes with absolute size change smaller than this value in bytes (default: 0)'
+    required: false
+    default: '0'
+  skip-comment-if-empty:
+    description: 'Skip posting PR comment if no changed routes are detected (default: false)'
+    required: false
+    default: 'false'
+runs:
+  using: node20
+  main: dist/index.js
