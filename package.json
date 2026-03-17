@@ -1,6 +1,7 @@
 {
   "name": "nextjs-turbopack-bundle-analysis",
   "version": "0.0.1",
+  "packageManager": "pnpm@9.5.0",
   "description": "GitHub Action to analyze and compare Next.js Turbopack bundle sizes in PRs",
   "scripts": {
     "build": "ncc build src/main.ts -o dist --source-map --license licenses.txt",
