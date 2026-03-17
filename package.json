@@ -1,6 +1,6 @@
 {
   "name": "nextjs-turbopack-bundle-analysis",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@9.5.0",
   "description": "GitHub Action to analyze and compare Next.js Turbopack bundle sizes in PRs",
   "scripts": {
